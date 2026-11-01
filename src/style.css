@@ -1,0 +1,604 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #d5dfd4;
+  background: #101c21;
+  font-synthesis: none;
+  font-size: 14px;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+button,
+select {
+  font: inherit;
+  color: inherit;
+  background: #22333a;
+  border: 1px solid #455a59;
+  padding: 12px 16px;
+  min-height: 44px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+button:hover {
+  border-color: #b9e4bc;
+  background: #30483f;
+}
+button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.primary {
+  background: #b8d99c;
+  color: #14251e;
+  border-color: #b8d99c;
+  font-weight: bold;
+}
+.danger {
+  background: #9c4d40;
+}
+header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  border-bottom: 1px solid #314147;
+  padding: 0 max(24px, env(safe-area-inset-left));
+}
+header b {
+  letter-spacing: 1px;
+  font-size: 14px;
+}
+header a {
+  cursor: pointer;
+  color: #c2e1ab;
+}
+nav {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+.tag,
+.eyebrow {
+  font: 10px monospace;
+  letter-spacing: 2px;
+  color: #95ad9f;
+}
+.tag {
+  color: #627f7c;
+}
+main {
+  min-height: calc(100dvh - 112px);
+  max-width: 1440px;
+  margin: auto;
+  padding: 28px;
+}
+footer {
+  padding: 10px 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  color: #8dada3;
+  font: 10px monospace;
+  border-top: 1px solid #293d40;
+  min-height: 42px;
+}
+footer button {
+  padding: 3px 8px;
+  min-height: 24px;
+}
+.landing {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 600px;
+  gap: 60px;
+  align-items: center;
+  padding: 20px 3%;
+}
+.intro h1 {
+  font-size: clamp(38px, 5.4vw, 78px);
+  line-height: 0.98;
+  letter-spacing: -3px;
+  margin: 27px 0;
+}
+h1 em {
+  color: #b6d89c;
+  font-style: normal;
+}
+.lead {
+  font-size: 25px !important;
+  color: #cfdfc9 !important;
+}
+.intro p {
+  line-height: 1.7;
+  color: #8fa8a4;
+  font-size: 16px;
+}
+.buttons {
+  display: flex;
+  gap: 12px;
+  margin: 25px 0;
+}
+.facts {
+  display: flex;
+  gap: 34px;
+  font: 14px monospace;
+  margin: 40px 0;
+  color: #c7d8bf;
+}
+.facts b {
+  display: block;
+  font: 9px monospace;
+  letter-spacing: 1px;
+  color: #78938d;
+  margin-top: 8px;
+}
+.backup {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+.backup button {
+  background: transparent;
+  color: #99b1a7;
+  font-size: 12px;
+}
+.poster {
+  position: relative;
+  min-height: 510px;
+  overflow: hidden;
+  background: linear-gradient(#263b40, #63746b 65%, #283a38 66%);
+  border: 1px solid #4c605a;
+  image-rendering: pixelated;
+  box-shadow: 18px 18px 0 #15272b;
+}
+.poster:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(transparent 0 3px, #101c211a 3px 4px);
+  pointer-events: none;
+}
+.moon {
+  position: absolute;
+  left: 58%;
+  top: 12%;
+  width: 60px;
+  height: 60px;
+  background: #b5bd99;
+  box-shadow: 0 0 60px #c2d2a332;
+}
+.skyline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 31%;
+  height: 38%;
+  background: repeating-linear-gradient(
+    90deg,
+    #233439 0 24px,
+    #2e4244 24px 60px,
+    #1b2d32 60px 74px
+  );
+  clip-path: polygon(
+    0 30%,
+    12% 30%,
+    12% 0,
+    27% 0,
+    27% 45%,
+    39% 45%,
+    39% 20%,
+    62% 20%,
+    62% 55%,
+    78% 55%,
+    78% 5%,
+    90% 5%,
+    90% 35%,
+    100% 35%,
+    100% 100%,
+    0 100%
+  );
+}
+.road {
+  position: absolute;
+  inset: 66% 0 0;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 34px, #a6ad7933 34px 38px),
+    #273834;
+  clip-path: polygon(47% 0, 61% 0, 100% 100%, 0 100%);
+}
+.signal {
+  position: absolute;
+  right: 12%;
+  top: 40%;
+  color: #c1edaa;
+  text-align: center;
+  font: bold 60px monospace;
+  text-shadow: 0 0 30px #b4ed9144;
+}
+.signal small {
+  display: block;
+  font: 8px monospace;
+}
+.silhouettes {
+  position: absolute;
+  bottom: 16%;
+  left: 27%;
+  font-size: 76px;
+  color: #12242a;
+  letter-spacing: 4px;
+}
+.poster-label {
+  position: absolute;
+  bottom: 25px;
+  left: 24px;
+  font: 18px monospace;
+  letter-spacing: 3px;
+}
+.poster-label small {
+  font-size: 9px;
+  color: #a5bb9f;
+}
+.mission-top {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 20px;
+}
+.mission-top h2 {
+  margin: 5px 0;
+  text-transform: uppercase;
+  font-size: 23px;
+}
+.metrics {
+  margin-left: auto;
+  display: flex;
+  gap: 25px;
+  font: 11px monospace;
+}
+.metrics b {
+  font-size: 20px;
+  color: #c5e0ac;
+  display: block;
+  margin-top: 5px;
+}
+.mission-layout {
+  display: grid;
+  grid-template-columns: 170px minmax(320px, 1fr) 230px;
+  gap: 20px;
+  align-items: start;
+}
+.unit {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin-top: 12px;
+  padding: 12px;
+}
+.unit b,
+.unit small,
+.unit > span:last-child {
+  display: block;
+  margin: 4px 0;
+}
+.unit small {
+  font-size: 10px;
+  color: #95ada5;
+}
+.unit > span:last-child {
+  font: 11px monospace;
+}
+.portrait {
+  display: block;
+  font-size: 26px;
+  color: #b9dba7;
+}
+.selected {
+  border-color: #b1dc9e;
+  background: #2d433c;
+}
+.board-wrap {
+  border: 1px solid #455853;
+  background: #1a2a2f;
+  min-width: 0;
+}
+#board {
+  aspect-ratio: 4/3;
+  width: 100%;
+  touch-action: none;
+  overflow: hidden;
+}
+#board canvas {
+  display: block !important;
+  max-width: 100%;
+  touch-action: none;
+}
+.board-caption {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  font: 9px monospace;
+  color: #92aaa0;
+  gap: 10px;
+}
+.orders h3 {
+  margin: 12px 0;
+}
+.orders #stats {
+  font: 11px monospace;
+  line-height: 1.6;
+  color: #99b7a9;
+}
+.weapon {
+  padding: 9px;
+  min-height: 38px;
+  font-size: 11px;
+  margin: 4px 3px 0 0;
+}
+#weapons {
+  margin: 15px 0;
+}
+#order {
+  border-top: 1px solid #3b504f;
+  border-bottom: 1px solid #3b504f;
+  padding: 8px 0 16px;
+  min-height: 100px;
+}
+#order p {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #b5c7b8;
+}
+#order button {
+  width: 100%;
+  margin: 4px 0;
+}
+#evac {
+  width: 100%;
+  margin: 12px 0;
+}
+#resources {
+  font: 10px monospace;
+  line-height: 2;
+  color: #92b3a6;
+}
+#log p {
+  font-size: 11px;
+  line-height: 1.5;
+  color: #95a99d;
+}
+.panel {
+  max-width: 1000px;
+  margin: 20px auto;
+}
+.panel h1 {
+  font-size: 44px;
+  letter-spacing: -1px;
+}
+.shelter-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+.roster {
+  border-bottom: 1px solid #344b47;
+  padding: 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.roster input {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+.roster select {
+  padding: 8px;
+}
+.mission-choice {
+  width: 100%;
+  display: block;
+  text-align: left;
+  padding: 20px;
+  margin: 12px 0;
+}
+.mission-choice small {
+  display: block;
+  margin-top: 8px;
+  color: #a2b3a6;
+}
+.muted {
+  font-size: 12px;
+  color: #839e92;
+  line-height: 1.6;
+}
+.results {
+  max-width: 600px;
+  margin: 30px 0;
+}
+.results p {
+  border-bottom: 1px solid #314c47;
+  padding: 12px;
+}
+.results span {
+  float: right;
+  color: #a9cb9c;
+}
+.result > button {
+  margin-right: 12px;
+}
+dialog {
+  color: #d3dfcf;
+  background: #192b30;
+  border: 1px solid #768c74;
+  padding: 28px;
+  max-width: 650px;
+  max-height: 85dvh;
+  border-radius: 5px;
+}
+dialog::backdrop {
+  background: #071419d9;
+}
+dialog p {
+  line-height: 1.7;
+}
+dialog h2 {
+  color: #badb9e;
+}
+.rotate {
+  display: none;
+}
+@media (max-width: 1100px) {
+  main {
+    padding: 16px;
+  }
+  .mission-layout {
+    grid-template-columns: 130px minmax(280px, 1fr) 190px;
+    gap: 12px;
+  }
+  .tag {
+    display: none;
+  }
+  .metrics {
+    gap: 12px;
+  }
+  .landing {
+    gap: 25px;
+  }
+  .poster {
+    min-height: 440px;
+  }
+  .facts {
+    gap: 16px;
+  }
+}
+@media (max-height: 650px) and (orientation: landscape) {
+  header {
+    height: 48px;
+  }
+  header button {
+    min-height: 34px;
+    padding: 7px 12px;
+  }
+  main {
+    padding: 10px 16px;
+  }
+  .mission-top {
+    margin-bottom: 8px;
+  }
+  .mission-top h2 {
+    font-size: 18px;
+  }
+  .mission-layout {
+    grid-template-columns: 120px minmax(260px, 1fr) 200px;
+  }
+  #board {
+    max-height: calc(100dvh - 170px);
+  }
+  footer {
+    font-size: 8px;
+    padding: 5px 16px;
+  }
+  .unit {
+    padding: 6px;
+    margin-top: 6px;
+  }
+  .portrait {
+    display: none;
+  }
+  .orders .eyebrow {
+    font-size: 8px;
+  }
+  .orders h3 {
+    margin: 4px 0;
+  }
+  .weapon {
+    padding: 4px;
+    min-height: 30px;
+  }
+  #weapons {
+    margin: 5px 0;
+  }
+  #order {
+    min-height: 55px;
+    padding: 0 0 5px;
+  }
+  #order p {
+    margin: 6px 0;
+  }
+  #order button {
+    min-height: 33px;
+    padding: 5px;
+  }
+  #evac {
+    min-height: 34px;
+    padding: 5px;
+    margin: 5px 0;
+  }
+  #resources p {
+    margin: 4px 0;
+  }
+  #log p {
+    font-size: 9px;
+    margin: 4px 0;
+  }
+  .landing {
+    min-height: 400px;
+  }
+  .poster {
+    min-height: 340px;
+  }
+  .intro h1 {
+    font-size: 42px;
+    margin: 15px 0;
+  }
+  .intro p {
+    margin: 10px 0;
+  }
+  .facts {
+    margin: 20px 0;
+  }
+}
+@media (orientation: portrait) and (max-width: 1000px) {
+  .rotate {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: #101c21;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 40px;
+    text-align: center;
+    padding: 25px;
+  }
+  .rotate h2 {
+    font-size: 25px;
+  }
+  .rotate p {
+    font-size: 16px;
+  }
+}
+
+@media (max-height: 650px) and (orientation: landscape) {
+  #board {
+    max-height: calc(100dvh - 135px);
+  }
+  .orders {
+    max-height: calc(100dvh - 120px);
+    overflow-y: auto;
+    padding-right: 4px;
+  }
+  .board-caption {
+    padding: 6px;
+    font-size: 8px;
+  }
+  header,
+  footer {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+  }
+}
