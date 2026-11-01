@@ -21,7 +21,7 @@ try {
     if (m.type() === "error") console.log("BROWSER ERROR", m.text());
   });
   page.on("pageerror", (e) => errors.push(e.message));
-  await page.goto("http://localhost:4173/the-last-extraction/");
+  await page.goto("http://localhost:4173/-the-last-extraction/");
   await page
     .getByText("LISTO PARA JUGAR SIN CONEXIÓN", { exact: false })
     .waitFor();

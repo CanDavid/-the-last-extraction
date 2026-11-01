@@ -14,7 +14,7 @@ npm run preview
 npx playwright install chromium
 npm run verify:browser
 ```
-Desarrollo y producción usan `/the-last-extraction/`. Abrir la URL completa, por ejemplo `http://localhost:4173/the-last-extraction/`. `dist/` contiene todos los archivos estáticos. Para otro nombre de repositorio: `BASE_PATH=/nombre/ npm run build`. No hay rutas del navegador ni CDN.
+Desarrollo y producción usan `/-the-last-extraction/`. Abrir la URL completa, por ejemplo `http://localhost:4173/-the-last-extraction/`. `dist/` contiene todos los archivos estáticos. Para otro nombre de repositorio: `BASE_PATH=/nombre/ npm run build`. No hay rutas del navegador ni CDN.
 
 ## Jugar
 Nueva partida abre la primera misión. Toca un personaje, una casilla y Confirmar. Casillas delineadas: alcanzables; ruta clara antes de mover. Cada movimiento (4 casillas, explorador 6), ataque, cura o rescate cuesta 1 de los 2 PA. Toca enemigo para ver daño, consumo y ruido. Soldado añade 1 de daño. Cambiar entre el arma elegida en el refugio y el machete no cuesta PA. El arma principal solo se cambia en el refugio. Escopeta de objetivo único; reserva común por arma, sin recargas. Médico cura 5 con botiquín a sí mismo o aliado adyacente.
@@ -32,14 +32,15 @@ Primer acceso requiere conexión y contexto seguro (HTTPS o localhost). Espera �
 
 Actualización queda esperando; se aplica desde el pie fuera de misión, después de guardar. Las cachés son por versión; no se modifica IndexedDB. No cerrar entre pulsar actualizar y recargar. Si el navegador elimina almacenamiento/caché por falta de espacio necesitará conexión de nuevo.
 
-## Publicar en GitHub Pages (pendiente de autorización)
-No se han creado repositorios remotos, subido cambios ni activado publicación. El directorio inicial estaba vacío y `.git` de la raíz era de solo lectura. Proyecto independiente en este directorio.
-1. Autorizar la subida y crear un repositorio **público** llamado `the-last-extraction` para Pages gratuito con GitHub Free; no cambiar visibilidad de un repositorio existente automáticamente. Si debe ser privado y el plan no permite Pages, no hay publicación gratuita en esas condiciones.
-2. Revisar si el destino tiene despliegue automático: advertir antes de subir este workflow y reconciliarlo. No había ninguno local.
-3. Desde este directorio: `git init`, `git add .`, `git commit -m "Build The Last Extraction"`, `git branch -M main`, `git remote add origin https://github.com/USUARIO/the-last-extraction.git`, `git push -u origin main` (solo tras autorización).
-4. En GitHub: Settings → Pages → Build and deployment → Source: **GitHub Actions**.
-5. Actions → Build and deploy Pages → Run workflow → main. El flujo es manual deliberadamente: no publica al subir archivos. Ejecuta comprobaciones, pruebas y build, sube artefacto y despliega con acciones oficiales, permisos mínimos y concurrencia controlada.
-6. Abrir `https://USUARIO.github.io/the-last-extraction/`. Esperar preparación offline. El workflow adapta la base al nombre real del repositorio.
+## GitHub Pages
+Repositorio público: https://github.com/CanDavid/-the-last-extraction
+Dirección prevista: https://candavid.github.io/-the-last-extraction/
+
+La publicación ha sido autorizada por el propietario. El repositorio tiene un guion inicial y el workflow adapta BASE_PATH a su nombre real. No había despliegues previos; se conserva el commit inicial del repositorio y se amplía su README.
+
+Configuración: Settings → Pages → Source: **GitHub Actions**. Para publicar una versión: Actions → Build and deploy Pages → Run workflow → main. El flujo manual ejecuta comprobaciones, pruebas y compilación antes del despliegue oficial, con permisos mínimos y concurrencia controlada. No publica automáticamente al subir archivos.
+
+Con GitHub Free, mantener público el repositorio de publicación. No se requieren dominio, secretos ni servicios de pago. Para otro nombre, la compilación admite `BASE_PATH=/nombre/ npm run build`.
 
 ## Recursos y estructura
 `config.ts`: mapas y equilibrio; `rules.ts`: estado y reglas; `ai.ts`: IA; `navigation.ts`: BFS y visión; `scene.ts`: render Phaser; `main.ts`: interfaz; `persistence.ts`: IndexedDB/validación; `vite.config.ts`: generación SW; `public/`: manifiesto e iconos originales. No se usaron recursos de terceros (excepto librerías con licencias incluidas en npm). Sprites geométricos originales, paisaje CSS e iconos generados para este proyecto. Audio Web Audio original. Fuentes de sistema.

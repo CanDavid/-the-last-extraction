@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import { readFileSync, writeFileSync, readdirSync } from "node:fs";
 import { createHash } from "node:crypto";
-const base = process.env.BASE_PATH || "/the-last-extraction/";
+const base = process.env.BASE_PATH || "/-the-last-extraction/";
 export default defineConfig({
   base,
   build: { chunkSizeWarningLimit: 1600 },
